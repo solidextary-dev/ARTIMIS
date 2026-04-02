@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const model = process.env.OPENAI_MODEL || "gpt-5.2";
+const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
 
 if (!process.env.OPENAI_API_KEY) {
   console.warn("Missing OPENAI_API_KEY. Add it in backend/.env before starting the server.");

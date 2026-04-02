@@ -1,4 +1,6 @@
-import YoutubeTranscript from "youtube-transcript/dist/youtube-transcript.esm.js";
+const YoutubeTranscriptModule = await import("youtube-transcript");
+
+const YoutubeTranscript = YoutubeTranscriptModule.YoutubeTranscript;
 
 export function isYouTubeUrl(value) {
   if (!value) {

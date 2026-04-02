@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = import.meta.env.VITE_API_URL || "https://artimis.onrender.com/";
+const API_URL = import.meta.env.VITE_API_URL || "https://dashboard.render.com/web/srv-d76vchnkijhs739m329g/logs?r=1h";
 
 export default function App() {
   const [text, setText] = useState("");
@@ -28,21 +28,22 @@ export default function App() {
       quiz: [],
     });
 
- const response = await fetch(`${API_URL}/api/study`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ text }),
-});
+    try {
+      const response = await fetch(`${API_URL}/api/study`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text }),
+      });
 
-const data = await response.json();
+      const data = await response.json();
 
-if (!response.ok) {
-  throw new Error(data.error || "Request failed.");
-}
+      if (!response.ok) {
+        throw new Error(data.error || "Request failed.");
+      }
 
-setResult(data);
+      setResult(data);
     } catch (err) {
       setError(err.message || "Something went wrong.");
     } finally {
@@ -141,3 +142,4 @@ setResult(data);
     </div>
   );
 }
+

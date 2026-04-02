@@ -252,7 +252,9 @@ function safeJsonParse(value) {
     }
   }
 }
-
+app.get("/", (req, res) => {
+  res.send("StudyFlow backend is running 🚀");
+});
 app.listen(port, () => {
   console.log(`StudyFlow backend running on http://localhost:${port}`);
 });

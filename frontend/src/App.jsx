@@ -28,7 +28,7 @@ export default function App() {
       quiz: [],
     });
 
-   const response = await fetch(`${API_URL}/api/study`, {
+ const response = await fetch(`${API_URL}/api/study`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -36,23 +36,13 @@ export default function App() {
   body: JSON.stringify({ text }),
 });
 
-const rawText = await response.text();
-console.log("RAW RESPONSE:", rawText);
+const data = await response.json();
 
-let data;
-try {
-  data = JSON.parse(rawText);
-} catch (e) {
-  throw new Error("Server did not return valid JSON.");
+if (!response.ok) {
+  throw new Error(data.error || "Request failed.");
 }
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Request failed.");
-      }
-
-      setResult(data);
+setResult(data);
     } catch (err) {
       setError(err.message || "Something went wrong.");
     } finally {

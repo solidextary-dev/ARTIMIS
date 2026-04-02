@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = import.meta.env.VITE_API_URL || "https://dashboard.render.com/web/srv-d76vchnkijhs739m329g/logs?r=1h";
+const API_URL = import.meta.env.VITE_API_URL || "https://artimis.onrender.com/";
 
 export default function App() {
   const [text, setText] = useState("");

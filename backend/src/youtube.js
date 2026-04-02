@@ -1,4 +1,4 @@
-import YoutubeTranscript from "youtube-transcript";
+import * as YoutubeTranscript from "youtube-transcript";
 
 export function isYouTubeUrl(value) {
   if (!value) {

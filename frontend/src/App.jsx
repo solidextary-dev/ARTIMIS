@@ -28,14 +28,23 @@ export default function App() {
       quiz: [],
     });
 
-    try {
-      const response = await fetch(`${API_URL}/api/study`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text }),
-      });
+   const response = await fetch(`${API_URL}/api/study`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ text }),
+});
+
+const rawText = await response.text();
+console.log("RAW RESPONSE:", rawText);
+
+let data;
+try {
+  data = JSON.parse(rawText);
+} catch (e) {
+  throw new Error("Server did not return valid JSON.");
+}
 
       const data = await response.json();
 

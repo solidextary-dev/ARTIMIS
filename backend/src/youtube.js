@@ -1,7 +1,4 @@
-const YoutubeTranscriptModule = await import("youtube-transcript");
-
-const YoutubeTranscript = YoutubeTranscriptModule.YoutubeTranscript;
-
+import { fetchTranscript } from "./youtubeTranscriptFetcher.js";
 export function isYouTubeUrl(value) {
   if (!value) {
     return false;

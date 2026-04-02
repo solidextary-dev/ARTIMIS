@@ -37,7 +37,9 @@ export default function App() {
         body: JSON.stringify({ text }),
       });
 
-      const data = await response.json();
+      const raw = await response.text();
+      console.log("RAW RESPONSE:", raw);
+      const data = JSON.parse(raw);
 
       if (!response.ok) {
         throw new Error(data.error || "Request failed.");

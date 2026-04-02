@@ -1,7 +1,4 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
-const YoutubeTranscript = require("youtube-transcript");
+import YoutubeTranscript from "youtube-transcript/dist/youtube-transcript.esm.js";
 
 export function isYouTubeUrl(value) {
   if (!value) {

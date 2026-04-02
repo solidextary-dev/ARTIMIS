@@ -1,4 +1,7 @@
-import * as YoutubeTranscript from "youtube-transcript";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
+const YoutubeTranscript = require("youtube-transcript");
 
 export function isYouTubeUrl(value) {
   if (!value) {
